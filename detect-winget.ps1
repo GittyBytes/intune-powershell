@@ -1,8 +1,6 @@
-$ResolveWingetPath = Resolve-Path "C:\Program Files\WindowsApps\Microsoft.DesktopAppInstaller_*_x64__8wekyb3d8bbwe"
-    if ($ResolveWingetPath){
-           $WingetPath = $ResolveWingetPath[-1].Path
-    }
-$wingetexe = "$ResolveWingetPath\winget.exe"
-
-if (Test-path $wingetexe)
-{ Write-host "Found Winget"}
+#Check Winget Install
+$TestWinget = Get-AppxProvisionedPackage -Online | Where-Object {$_.DisplayName -eq "Microsoft.DesktopAppInstaller"}
+If ([Version]$TestWinGet. Version -gt "2022.728.1938.0")
+{
+Write-Host "WinGet is Installed" -ForegroundColor Green
+}
