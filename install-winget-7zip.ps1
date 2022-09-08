@@ -1,0 +1,1 @@
+﻿winget install --exact --silent "7zip.7zip" --log "C:\Windows\Temp\Install-7zip-winget"
