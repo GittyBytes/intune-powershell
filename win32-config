@@ -1,0 +1,5 @@
+Description: Install Dell Command Update via winget installer
+
+Install command: "%systemroot%\sysnative\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -ExecutionPolicy Bypass -File winget-install.ps1 -AppIDs Dell.CommandUpdate
+
+Uninstall command: "%systemroot%\sysnative\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -ExecutionPolicy Bypass -File winget-install.ps1 -AppIDs Dell.CommandUpdate -Uninstall
