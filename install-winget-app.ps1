@@ -18,7 +18,7 @@ function Confirm_Winget_Install {
     }
     else {
         write-host "winget is not installed"
-        return $false
+        exit 1
     }
 }
 
@@ -27,5 +27,18 @@ function Confirm_Winget_Install {
 Start-Init
 
 if (Confirm_Winget_Install) {
-    winget install $AppID -e --accept-source-agreements
+    $InstalledApp = & winget list --Id $AppID --accept-source-agreements | Out-String
+    if (!($InstalledApp -match [regex]::Escape($AppID))) {
+        write-host "$AppID is not installed, starting installation"
+        winget source update
+        winget install $AppID -e --accept-source-agreements
+    }
+    $InstalledApp = & winget list --Id $AppID --accept-source-agreements | Out-String
+    if ($InstalledApp -match [regex]::Escape($AppID)) {
+    return "$AppID is succesfully installed!"
+    exit 0
+    }else {
+    write-host "$AppID is not succesfully installed!"
+    exit 1
+    }
 }
