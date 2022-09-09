@@ -19,8 +19,8 @@ New-Item -Path $InstallerFolder -ItemType Directory -Force -Confirm:$false
 		#Download WinGet MSIXBundle
 		Write-Host "Not installed. Downloading WinGet..." 
 		$WinGetURL = "https://aka.ms/getwinget"
-        $MicrosoftVCLibsURL = "https://github.com/WinRice/Files/raw/main/Microsoft.VCLibs.140.00.UWPDesktop_8wekyb3d8bbwe.Appx"
-		$MicrosoftUIXamlURL = "https://github.com/WinRice/Files/raw/main/Microsoft.UI.Xaml.2.7_8wekyb3d8bbwe.Appx"
+        $MicrosoftVCLibsURL = "https://github.com/GittyBytes/intune-powershell/raw/master/files/Microsoft.VCLibs.140.00.UWPDesktop_8wekyb3d8bbwe.Appx"
+		$MicrosoftUIXamlURL = "https://github.com/GittyBytes/intune-powershell/raw/master/files/Microsoft.UI.Xaml.2.7_8wekyb3d8bbwe.Appx"
         $dc.DownloadFile($WinGetURL, "$InstallerFolder\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle")
         $dc.DownloadFile($MicrosoftVCLibsURL, "$InstallerFolder\Microsoft.VCLibs.140.00.UWPDesktop_8wekyb3d8bbwe.Appx")
         $dc.DownloadFile($MicrosoftUIXamlURL, "$InstallerFolder\Microsoft.UI.Xaml.2.7_8wekyb3d8bbwe.Appx")
